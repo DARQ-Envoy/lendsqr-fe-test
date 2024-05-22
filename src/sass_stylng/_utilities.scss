@@ -1,0 +1,50 @@
+
+
+
+$lightblue: #39cdcc;
+$transparentLightBlue:rgba(57, 205, 204,6%);
+$textblue:#545F7D;
+$headerblue:#213F7D;
+
+
+
+$statusBlue:#545F7D;
+$statusYellow: #E9B200;
+$statusRed: #E4033B;
+$statusGreen: #39CD62;
+$statusBackgroundBlue:rgb(84, 95, 125, 0.06);
+$statusBackgroundYellow: rgb(233, 178, 0, 0.1);
+$statusBackgroundRed: rgb(228, 3, 59, 0.1);
+$statusBackgroundGreen: rgb(57, 205, 98, 0.06);
+
+$allStatus:(("status":"inactive","color":$statusBlue,"backgroundColor":$statusBackgroundBlue,"padding": 7px 13px 6px ),("status":"pending","color":$statusYellow,"backgroundColor":$statusBackgroundYellow, "padding": 7px 18px 6px ),("status":"blacklisted","color":$statusRed,"backgroundColor":$statusBackgroundRed, "padding": 7px 12px 6px ),("status":"active","color":$statusGreen,"backgroundColor":$statusBackgroundGreen, "padding": 7px 14px 6px ));
+
+
+@each $status in $allStatus{
+    $name: map-get($status,"status");
+    $color: map-get($status,"color");
+    $padding: map-get($status,"padding");
+    $backgroundColor: map-get($status,"backgroundColor");
+    .status-#{$name}{
+        padding: $padding;
+        color: $color;
+        background-color: $backgroundColor;
+    }
+}
+
+
+
+$userProperties : ("organization":("width": 120px,"bgColor":brown),"username":("width": 110px, "bgColor":violet),"email":("width": 190px, "bgColor":red),"phone-number":("width": 125px, "bgColor":blue),"date-joined":( "width": 155px, "bgColor":yellow),"status":("width": 100px, "bgColor":indigo));
+
+
+@each $prop,$val in $userProperties{
+    @debug $prop;
+    @debug $val;
+    @debug "avcs";
+
+    .#{$prop}{
+        // background-color: map-get($val,"bgColor");
+        // margin-right: ;
+        min-width: map-get($val,"width")
+    } 
+}
