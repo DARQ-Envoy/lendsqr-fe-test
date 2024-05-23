@@ -2,7 +2,6 @@ import React from 'react'
 import { LenderNavLink } from './lender-nav-link'
 import BriefCase from "../assets/lender-nav-icons/organization.svg"
 import Home from "../assets/lender-nav-icons/dashboard.svg"
-import * as lenderNavImages from "../assets/lender-nav-icons";
 import { lenderNavLinkGenerator } from '../utility/processors';
 import logo from "../assets/Logo.svg"
 import { LenderNavGroup } from './lender-nav-group';
