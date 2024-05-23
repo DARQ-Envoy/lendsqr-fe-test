@@ -15,7 +15,7 @@ Here are some points to note about this project:
 
 - In the data-structure file, using typescript, I created types for data and structured those types to make more complex types. That can be found in the following path: src/utility/data-structure.ts 
 
-- In the logic file, I created a function that returns an async function that get intercepted by the thunk middleware and used to both consume the api, fetching the required data and dispatching actions to get that data stored. That can be found in the following path: src/utility/logic.ts 
+- In the logic file, I created a function that returns an async function that get intercepted by the thunk middleware and used to both consume the api fetching the required data and dispatching actions to get that data stored. That can be found in the following path: src/utility/logic.ts 
 
 - My keen attention to detail 
 
@@ -32,7 +32,7 @@ Here are some points to note about this project:
 
 
 
-## A Self Taught Developer
+# A Self Taught Developer
    I am a self taught software engineer. Being a self taught software engineer means that I am self disciplined and self motivated. As I said earlier, I have built my career for over three years now. If I was not disciplined and self-motivated, I would not come this far.
 
    I learnt using mostly online resources and courses, so you can be sure that I am proficient at making research. Asides online resources, internships with a lot of companies such as Microsoft, have given me a lot of experience and taught me a lot of skills.
