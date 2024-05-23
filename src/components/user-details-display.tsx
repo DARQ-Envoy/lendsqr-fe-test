@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef} from 'react'
 import { listDisplayProperties, type userDetailsDisplayProp, type displayProperties, type UserOptionsGroup  } from '../utility/data-structure'
 import { camelCaseConverter } from '../utility/processors';
 import viewDetailsIcon from "../assets/user-options/view-details-option.svg";

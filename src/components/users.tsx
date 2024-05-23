@@ -100,7 +100,7 @@ useEffect(()=>{
                 "status":""
         };
 
-            userObjectProperties.forEach((key,index)=>{
+            userObjectProperties.forEach((key)=>{
                 const value = data.personalDetails[key];
                 if(key == "dateJoined"){
                 obj = {...obj, [key]:dateProcessor(value)}

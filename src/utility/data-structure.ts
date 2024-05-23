@@ -1,7 +1,7 @@
 import * as lenderNavImages from "../assets/lender-nav-icons";
 import { lenderNavLinkGenerator, stringHypenSplitter } from "./processors";
 
-const {auditLogs, dashboard, decisionModels, feesAndCharges, feesAndPricing, guarantors, karma, loanProducts, loanRequests, loans, organization, preferences, reports, savingsProducts, savings, serviceAccount, services, settlements, transactions, users, whitelist} = lenderNavImages;
+const {auditLogs, decisionModels, feesAndCharges, feesAndPricing, guarantors, karma, loanProducts, loanRequests, loans, organization, preferences, reports, savingsProducts, savings, serviceAccount, services, settlements, transactions, users, whitelist} = lenderNavImages;
 const customerImages = [users, guarantors, loans, decisionModels, savings, loanRequests, whitelist, karma];
 const businessImages = [organization, loanProducts, savingsProducts, feesAndCharges, transactions, services, serviceAccount, settlements, reports];
 const settingsImages = [preferences, feesAndPricing, auditLogs]

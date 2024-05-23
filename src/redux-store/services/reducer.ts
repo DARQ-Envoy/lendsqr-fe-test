@@ -1,6 +1,6 @@
 import { UserDataType } from "../../utility/data-structure";
 
-import { StoreUsersActionType, UserReducerType, UserDataInitialStateType, storeUsersActionCmd} from "./data-structure";
+import {UserReducerType, UserDataInitialStateType, storeUsersActionCmd} from "./data-structure";
 
 
 const initialUserData :UserDataType = [{
@@ -64,6 +64,7 @@ const userReducer:UserReducerType = (state=userDataInitialState, action)=>{
             return {...state, userFetched:true,users:action.payLoad}
         default:
             const nothing:never = action.type;
+            nothing;
             return state;
 
     }
