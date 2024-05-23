@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { UserCategory, type UserCategoryProps } from './user-category';
 import * as userCat from "../assets/user-categories";
-import { stringHypenSplitter, camelCaseConverter, dateProcessor, phoneNumberProcessor, emailProcessor } from '../utility/processors';
+import {camelCaseConverter, dateProcessor, phoneNumberProcessor, emailProcessor } from '../utility/processors';
 import { userObjectPropertiesType, UserDataType, displayDetails,listDisplayProperties ,allHeadingProps } from '../utility/data-structure';
 import { getAllUsers } from '../utility/logic';
 import { UserDetailsDisplay } from './user-details-display';
@@ -19,7 +19,7 @@ const Users:React.FC = () => {
     const [, setDisplayedUserOptRef] = useState<HTMLDivElement|null>(null)
     const isUsersAvailable = useSelector((state:GlobalState)=>state.userReducer.userFetched)
     const allStoredUsers:UserDataType = useSelector((state:GlobalState)=>state.userReducer.users)
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any|StoreUsersActionType>();
     const displayProperties= allHeadingProps.map(([text,textSplitted],index)=>{
         return (<div className={`list-heading ${text}`} key={index}>
                 <h6 className={`heading`} >{textSplitted}</h6>
@@ -63,7 +63,7 @@ useEffect(()=>{
         console.log(allUsers);
         if(allUsers){
             console.log("fetching data from localStorage")
-            dispatch<StoreUsersActionType>({
+            dispatch({
             type: storeUsersActionCmd,
             payLoad: JSON.parse(allUsers)
         })

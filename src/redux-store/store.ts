@@ -12,7 +12,7 @@ type GlobalState = {
 }
 const store = configureStore({
         reducer: resultingReducers,
-        middleware: (defaultMiddleware)=>[...defaultMiddleware({serializableCheck:false, immutableCheck:false}),logger, thunk]
+        middleware: (defaultMiddleware)=>defaultMiddleware({serializableCheck:false, immutableCheck:false}).concat(thunk,logger)
     })
 
 export {store};
