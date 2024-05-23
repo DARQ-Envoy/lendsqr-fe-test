@@ -61,3 +61,9 @@ Mobile responsiveness:  The following were built over two years ago. They are pr
 ## My website:
 Please visit my website to view an array of projects I have built which are all proof of my proficiency.
 - https://darq-envoy.github.io/
+
+## How to access the live rendering of this project.
+- Clone the repo.
+- Pull the repo to your local repo
+- Run npm install under that repo's directory to install all dependencies
+- run "npm run dev" on your terminal.
