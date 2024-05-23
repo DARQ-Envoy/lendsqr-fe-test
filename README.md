@@ -64,6 +64,5 @@ Please visit my website to view an array of projects I have built which are all 
 
 ## How to access the live rendering of this project.
 - Clone the repo.
-- Pull the repo to your local repo
 - Run npm install under that repo's directory to install all dependencies
 - run "npm run dev" on your terminal.
