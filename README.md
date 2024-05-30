@@ -15,7 +15,9 @@ Here are some points to note about this project:
 
 - In the data-structure file, using typescript, I created types for data and structured those types to make more complex types. That can be found in the following path: src/utility/data-structure.ts 
 
-- In the logic file, I created a function that returns an async function that get intercepted by the thunk middleware and used to both consume the api fetching the required data and dispatching actions to get that data stored. That can be found in the following path: src/utility/logic.ts 
+- I created a file name extractor which is a function that extracts the names of files and uses them to name links. I implemented this function in the case of the lender nav links.
+
+- In the logic file, I created a function that returns an async function that get intercepted by the thunk middleware and used to both consume the api fetching the required data and dispatching actions to get that data stored. That can be found in the following path: src/utility/logic.ts
 
 - My keen attention to detail 
 
@@ -27,7 +29,7 @@ Here are some points to note about this project:
 
 - I am proficient in writing test in react, employing tools such as Jest, just as I am proficient in writing tests in django like unit tests, view tests, automated tests and so on. 
 
-
+## Overall, I encourage you to look into my source code especially the utility folder which can be found in the src folder. It is proof of the hardwork and dedication I put into this project. An interview would no doubt convince you of my expertise.
 
 
 
@@ -59,3 +61,8 @@ Mobile responsiveness:  The following were built over two years ago. They are pr
 ## My website:
 Please visit my website to view an array of projects I have built which are all proof of my proficiency.
 - https://darq-envoy.github.io/
+
+## How to access the live rendering of this project.
+- Clone the repo.
+- Run npm install under that repo's directory to install all dependencies
+- run "npm run dev" on your terminal.
