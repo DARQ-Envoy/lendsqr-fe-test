@@ -1,9 +1,14 @@
 import React from 'react'
 import searchIcon from "../assets/search-icon.svg" 
 
-const SearchField:React.FC = () => {
+
+
+type SearchFieldProps = {
+  customClasses?:string
+}
+const SearchField:React.FC<SearchFieldProps> = ({customClasses}) => {
   return (
-    <div id='search-field'>
+    <div id='search-field' className={customClasses}>
         {/* <label htmlFor="search-input" >Search for anything</label> */}
         <input type="text" id='search-input' placeholder='Search for anything'/>
         <button>

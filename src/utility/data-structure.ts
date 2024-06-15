@@ -1,10 +1,10 @@
 import * as lenderNavImages from "../assets/lender-nav-icons";
-import { lenderNavLinkGenerator, stringHypenSplitter } from "./processors";
+import {stringHypenSplitter, camelCaseToWord } from "./processors";
 
 const {auditLogs, decisionModels, feesAndCharges, feesAndPricing, guarantors, karma, loanProducts, loanRequests, loans, organization, preferences, reports, savingsProducts, savings, serviceAccount, services, settlements, transactions, users, whitelist} = lenderNavImages;
-const customerImages = [users, guarantors, loans, decisionModels, savings, loanRequests, whitelist, karma];
-const businessImages = [organization, loanProducts, savingsProducts, feesAndCharges, transactions, services, serviceAccount, settlements, reports];
-const settingsImages = [preferences, feesAndPricing, auditLogs]
+const customerImages = {users, guarantors, loans, decisionModels, savings, loanRequests, whitelist, karma};
+const businessImages = {organization, loanProducts, savingsProducts, feesAndCharges, transactions, services, serviceAccount, settlements, reports};
+const settingsImages = {preferences, feesAndPricing, auditLogs}
 
 
 type LenderNavLinkType = {
@@ -18,39 +18,34 @@ type LenderNavLinksGroup = {
 };
 type LenderNavDataType = Array<LenderNavLinksGroup>
 
-
-
+const allCustomerImgEntries = Object.entries(customerImages)
+const allBusinessImgEntries = Object.entries(businessImages)
+const allSettingsImgEntries = Object.entries(settingsImages)
 const LenderNavData:LenderNavDataType = [
         {
             heading:"CUSTOMERS",
-            links: customerImages.map(img=>{
-                const linkText = lenderNavLinkGenerator(img);
-                const imageSrc = img;
+            links: allCustomerImgEntries.map(([key,object])=>{
                 return {
-                    desc: linkText,
-                    imgSrc: imageSrc
+                    desc: camelCaseToWord(key),
+                    imgSrc: object
                 }
             })
         },
         {
             heading:"BUSINESS",
-            links: businessImages.map(img=>{
-                const linkText = lenderNavLinkGenerator(img);
-                const imageSrc = img;
+            links: allBusinessImgEntries.map(([key,object])=>{
                 return {
-                    desc: linkText,
-                    imgSrc: imageSrc
+                    desc: camelCaseToWord(key),
+                    imgSrc: object
                 }
             })
         },
         {
             heading:"SETTINGS",
-            links: settingsImages.map(img=>{
-                const linkText = lenderNavLinkGenerator(img);
-                const imageSrc = img;
+            links: allSettingsImgEntries.map(([key,object])=>{
                 return {
-                    desc: linkText,
-                    imgSrc: imageSrc
+                    desc: camelCaseToWord(key),
+                    imgSrc: object
                 }
             })
         }

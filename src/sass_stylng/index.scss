@@ -60,6 +60,7 @@
                 font-weight: 700;
                 font-size: 2.5rem;
                 // line-height: 54.64px; 
+                margin-bottom: 10px;
             }
             >p{
                 color: $textblue;
@@ -145,8 +146,20 @@
 }
 
 
+.drop-down-icon{
+    width: 20px;
+    height: 20px;
+}
+
+.drop-down-icon-sm{
+    width: 25px;
+    height: 25px;
+}
+
+
 #dashboard{
     height: 100vh;
+    // height: max-content;
     width: 100vw;
     overflow: hidden;
     display:flex;
@@ -196,12 +209,119 @@
 }
 
 #header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
     padding: 25px 35px 25px 60px;
     height: 16%;
     background-color: #fff;
+#navigation-sm{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    z-index:999;
+    .options-sm{
+        display:flex;
+        align-items: center;
+        gap: 2px;
+        cursor: pointer;
+    }
+    .avatar{
+        cursor: pointer;
+        width: 30px;
+        height: 30px; 
+    }
+    .nav-options-sm{
+        top: 0;
+        right:0;
+        translate: 0% 30%;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        min-width: 250px;
+        background-color: white;
+        border-radius: 6%;
+        box-shadow:3px 5px 20px rgba(0, 0, 0, 0.4) ;
+        // background-color: red;
+        >a{
+            text-decoration: none;
+            font-family: "roboto";
+            font-weight: 400;
+            font-size: 0.8rem;
+            padding: 20px 10px 20px 30px;
+            display: block;
+            color: $headerblue;
+            &:hover{
+                background-color: rgba(128, 128, 128, 0.3);
+            }
+    }
+    >a:not(:last-of-type){
+        border-bottom: 1px $transparentLightBlue solid;
+    }
+}
+}
+
+
+#navigation-md{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    z-index:999;
+    .options-md{
+        display:flex;
+        align-items: center;
+        gap: 2px;
+        cursor: pointer;
+          span{
+            font-weight: 500;
+            font-size: 1rem;
+            color:$headerblue
+        }
+    }
+    .avatar{
+        cursor: pointer;
+        width: 30px;
+        height: 30px; 
+    }
+    .search-field-md{
+        scale:0.8 1;
+    }
+    .nav-options-md{
+        top: 0;
+        right:0;
+        translate: 0% 30%;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        min-width: 250px;
+        background-color: white;
+        border-radius: 6%;
+        box-shadow:3px 5px 20px rgba(0, 0, 0, 0.4) ;
+        // background-color: red;
+      
+        >a{
+            text-decoration: none;
+            font-family: "roboto";
+            font-weight: 400;
+            font-size: 0.8rem;
+            padding: 20px 10px 20px 30px;
+            display: block;
+            color: $headerblue;
+            &:hover{
+                background-color: rgba(128, 128, 128, 0.3);
+            }
+    }
+    >a:not(:last-of-type){
+        border-bottom: 1px $transparentLightBlue solid;
+    }
+}
+}
+
+#large-navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
     #navigation{
         display: flex;
@@ -233,10 +353,7 @@
                 color:$headerblue
             }
          
-            .drop-down-icon{
-                width: 20px;
-                height: 20px;
-            }
+
         }
 
     }
@@ -253,6 +370,7 @@
         height: 100%;
         width: 100%;
         background-color: #FBFBFB;
+        // background-color: #fdfdfd;
         overflow-y: scroll;
         // position: relative;
         // background-color: red;
@@ -277,6 +395,7 @@
                height: 160px;
                padding: 30px 20px 30px 30px;
                border-radius: 4%;
+               box-shadow:3px 5px 20px rgba(0, 0, 0, 0.04) ;
                img{
                    height: 40px;
                    width: 40px;
@@ -302,8 +421,9 @@
             height: 640px;
             border-radius: 4px;
             border: 1px rgba(33, 63, 125, 0.06) solid;
-            padding: 0px 0px 0px 30px;
+            padding: 0px 0px 0px 10px;
             overflow-y: hidden;
+            background-color: white;
             // background-color: blue;
             // padding: 30px 0px 0px 10px;
             #user-list-heading{
@@ -311,10 +431,10 @@
                 align-items: center;
                 gap: 15px;
                 padding: 30px 0 13px 0;
-                background-color: white;
                 position: sticky;
                 top: 0px;
                 left: 0px;
+                min-width: max-content;
 
                 .list-heading{
                     display: flex;
@@ -335,12 +455,15 @@
             #main-user-list{
                 height: 500px;
                 overflow-y: scroll;
+                flex: 1;
+                position: relative;
                 .prop-list{
                     display: flex;
                     align-items: center;
                     list-style: none;
                     border-bottom: 1px solid rgba(33, 63, 125, 0.1);
                     gap: 15px;
+
                     .prop{
                         display: block;
                         padding: 23px 0px 23px 0px;
@@ -348,6 +471,20 @@
                         font-weight: 400;
                         font-size: 0.8rem;
 
+                    }
+
+
+                    .final-prop{
+                        display: flex;
+                        align-items: center;
+                        gap: 30px;
+                        .status{
+                            border-radius: 100px;
+                            font-weight: 400;
+                            font-size: 0.87rem;
+                            text-align: center;
+                            display: block;
+                        }
                     }
                     .prop-options{
                             position: relative;
@@ -408,13 +545,7 @@
                         background-color: rgb(gray, 40%);
                     }
 
-            .status{
-                border-radius: 100px;
-                font-weight: 400;
-                font-size: 0.87rem;
-                text-align: center;
-                display: block;
-            }
+            
                 }
             }
            }
@@ -524,12 +655,15 @@
 
 
 #spinner{
-    margin: 5px auto;
-    width: 50px;
-    height: 50px;
-    border: 0.8px solid $textblue;
-    border-left: 0.8px solid transparent;
+    width: 35px;
+    height: 35px;
+    border: 7px solid $textblue;
+    border-left: 7px solid transparent;
     border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50% !important;
 }
 
 

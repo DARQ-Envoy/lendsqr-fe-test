@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { UserCategory, type UserCategoryProps } from './user-category';
 import * as userCat from "../assets/user-categories";
-import {camelCaseConverter, dateProcessor, phoneNumberProcessor, emailProcessor } from '../utility/processors';
+import {wordToCamelCase, dateProcessor, phoneNumberProcessor, emailProcessor } from '../utility/processors';
 import { userObjectPropertiesType, UserDataType, displayDetails,listDisplayProperties ,allHeadingProps } from '../utility/data-structure';
 import { getAllUsers } from '../utility/logic';
 import { UserDetailsDisplay } from './user-details-display';
@@ -14,11 +14,18 @@ import {Spinner} from "./spinner"
 const Users:React.FC = () => {
     const {users, activeUsers, loanRecords, savings} = userCat;
     // const [allUsers, setAllUsers] = useState<UserDataType|null>(null);
+    const [usersBatch,] = useState<number>(1);
+    // const maxBatchNo = 5;
     const [allDisplayUsers, setAllDisplayUsers] = useState<displayDetails[]>([]);
     const [userList, setUserList] = useState<JSX.Element[]>()
     const [, setDisplayedUserOptRef] = useState<HTMLDivElement|null>(null)
-    const isUsersAvailable = useSelector((state:GlobalState)=>state.userReducer.userFetched)
-    const allStoredUsers:UserDataType = useSelector((state:GlobalState)=>state.userReducer.users)
+    const isUsersAvailable = useSelector((state:GlobalState)=>state.userReducer.userFetched);
+    const allStoredUsers:UserDataType = useSelector((state:GlobalState)=>state.userReducer.users);
+    const maxDisplayElements = 100;
+    const previousBatch = (usersBatch-1) * maxDisplayElements;
+    const currentBatch = usersBatch * maxDisplayElements;
+    const usersToDisplay = allStoredUsers.slice(previousBatch, currentBatch)
+
     const dispatch = useDispatch<any|StoreUsersActionType>();
     const displayProperties= allHeadingProps.map(([text,textSplitted],index)=>{
         return (<div className={`list-heading ${text}`} key={index}>
@@ -55,6 +62,20 @@ const Users:React.FC = () => {
  ]
 
 
+// const increaseBatch = ()=>{
+//     if(usersBatch <= maxBatchNo){
+//         setUsersBatch((prev)=> prev + 1)
+//     }
+// }
+
+// const decreaseBatch = ()=>{
+//     if(usersBatch > 1){
+//         setUsersBatch((prev)=> prev - 1)
+//     }
+// }
+
+
+
 
  
 useEffect(()=>{
@@ -89,8 +110,9 @@ useEffect(()=>{
     console.log(usersAccessed, allStoredUsers.length)
     if(usersAccessed){
         console.log("Filling user data")
-        const userObjectProperties:userObjectPropertiesType = listDisplayProperties.map(item=>camelCaseConverter(item)) as userObjectPropertiesType;
-        const userList:displayDetails[] = allStoredUsers.map((data)=>{
+        const userObjectProperties:userObjectPropertiesType = listDisplayProperties.map(item=>wordToCamelCase(item)) as userObjectPropertiesType;
+
+        const userList:displayDetails[] = usersToDisplay.map((data)=>{
         let obj: displayDetails = {
                 "organization":"",
                 "username":"",
@@ -152,8 +174,8 @@ console.log(userList)
         <div id='user-list-heading'>
             {displayProperties}
         </div>
-        <div id='main-user-list' className={!(userList?.length == allStoredUsers.length)?"list-loading":""}>
-            {userList?.length == allStoredUsers.length ? userList:<Spinner/>}
+        <div id='main-user-list' className={!(userList?.length == usersToDisplay.length)?"list-loading":""}>
+            {userList?.length == usersToDisplay.length ? userList:<Spinner/>}
         </div>        
 
         </section>

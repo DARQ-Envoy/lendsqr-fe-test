@@ -34,7 +34,24 @@ export function stringHypenSplitter(text: string){
     return splitString;
 }
 
-export function camelCaseConverter(text:string){
+// Check if a string is lowercase is not 
+export function isLowerCase(text:string){
+        return text === text.toLowerCase() && text !== text.toUpperCase() 
+}
+export function camelCaseToWord(text:string):string{
+            const subTextArr = text.split("");
+            const subTextProcessed = subTextArr.map((subText)=>{
+                return isLowerCase(subText) ? subText:` ${subText}`;
+            })
+            const allWordsSplit = subTextProcessed.join("").split(" ")
+            const allWords=  allWordsSplit.map((text)=>{
+             return capitalizedStringGenerator(text);
+            }).join(" ")
+            return allWords
+}
+
+
+export function wordToCamelCase(text:string){
     const input = text;
     const splitInput = input.split(/[-" "]/);
     const capitalizedSplitInput = splitInput.map((input, index)=>{

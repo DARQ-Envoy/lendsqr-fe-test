@@ -36,15 +36,77 @@ $allStatus:(("status":"inactive","color":$statusBlue,"backgroundColor":$statusBa
 
 $userProperties : ("organization":("width": 120px,"bgColor":brown),"username":("width": 110px, "bgColor":violet),"email":("width": 190px, "bgColor":red),"phone-number":("width": 125px, "bgColor":blue),"date-joined":( "width": 155px, "bgColor":yellow),"status":("width": 100px, "bgColor":indigo));
 
+@media screen and (min-width:501px){
 
-@each $prop,$val in $userProperties{
-    @debug $prop;
-    @debug $val;
-    @debug "avcs";
+    @each $prop,$val in $userProperties{
+        @debug $prop;
+        @debug $val;
+        @debug "avcs";
+    
+        .#{$prop}{
+            // background-color: map-get($val,"bgColor");
+            // margin-right: ;
+            min-width: map-get($val,"width")
+        } 
+    }
+}
 
-    .#{$prop}{
-        // background-color: map-get($val,"bgColor");
-        // margin-right: ;
-        min-width: map-get($val,"width")
-    } 
+
+
+
+// Classes
+
+.hidden{
+    display: none !important;
+}
+.d-block{
+    display: block !important;
+}
+.flex{
+    display: flex !important;
+}
+.relative{
+   position: relative !important;     
+}
+.absolute{
+    position: absolute !important;
+}
+
+
+
+
+@media screen and (max-width:900px){
+    .md-hidden{
+        display: none !important;
+    }
+    .md-block{
+        display: block !important;
+    }
+    .md-flex{
+        display: flex !important;
+    }
+    .md-logo{
+        width: 130px !important;
+        height: 25px !important;
+    }
+
+}
+
+
+
+@media screen and (max-width:500px){
+    .sm-hidden{
+        display: none !important;
+    }
+    .sm-block{
+        display: block !important;
+    }
+    .sm-flex{
+        display: flex !important;
+    }
+    .sm-logo{
+        width: 130px !important;
+        height: 25px !important;
+    }
+
 }

@@ -14,7 +14,7 @@ function submitData(e:FormEvent<HTMLFormElement>){
 
 return (
 <div className="login-page">
-    <img src={logo} alt="Lendsqr Logo" />
+    <img src={logo} alt="Lendsqr Logo"/>
     <div>
         <img src={hero} alt="empowering the smartest lenders" />
         <form  onSubmit={submitData}>
