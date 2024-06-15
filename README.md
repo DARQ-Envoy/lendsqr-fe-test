@@ -65,7 +65,7 @@ Please visit my website to view an array of projects I have built which are all 
 ## How to access the live rendering of this project.
 - Url: https://darq-envoy.github.io/lendsqr-fe-test/
 
-####### OR
+##### OR
 
 - Clone the repo.
 - Run npm install under that repo's directory to install all dependencies
