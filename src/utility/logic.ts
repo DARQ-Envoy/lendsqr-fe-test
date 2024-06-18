@@ -2,7 +2,6 @@ import { Dispatch} from "redux";
 import { UserDataType, userStorageKey } from "./data-structure";
 import { ElementStateType, StoreUsersActionType, setElementActionType, storeUsersActionCmd } from "../redux-store/services/data-structure";
 import { setElementActionCreator } from "../redux-store/services/action-creators";
-import { all } from "axios";
 // const getAllUsers =function fetchUsers(url:string, setState:React.Dispatch<any>){
 //     fetch(url)
 //                         .then(res=>{

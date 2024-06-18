@@ -12,7 +12,7 @@ const initialUserData :UserDataType = [{
         "email": "",
         "gender": "",
         "accountTier": 0,
-        "status": "",
+        "status": "active",
         "phoneNumber": "",
         "dateJoined": "",
         "balance": "",
