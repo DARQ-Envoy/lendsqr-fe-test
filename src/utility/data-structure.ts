@@ -70,7 +70,7 @@ type UserDataType = {
       "email": string,
       "gender": string,
       "accountTier": number,
-      "status": string,
+      "status": "active"|"inactive"|"blacklisted"|"pending",
       "phoneNumber": string,
       "dateJoined": string,
       "balance": string,

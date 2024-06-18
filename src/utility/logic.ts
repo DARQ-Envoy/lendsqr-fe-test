@@ -1,7 +1,8 @@
 import { Dispatch} from "redux";
 import { UserDataType, userStorageKey } from "./data-structure";
-import { StoreUsersActionType, storeUsersActionCmd } from "../redux-store/services/data-structure";
-
+import { ElementStateType, StoreUsersActionType, setElementActionType, storeUsersActionCmd } from "../redux-store/services/data-structure";
+import { setElementActionCreator } from "../redux-store/services/action-creators";
+import { all } from "axios";
 // const getAllUsers =function fetchUsers(url:string, setState:React.Dispatch<any>){
 //     fetch(url)
 //                         .then(res=>{
@@ -27,7 +28,7 @@ import { StoreUsersActionType, storeUsersActionCmd } from "../redux-store/servic
 const getAllUsers =()=>{
     return async function fetchUsers(dispatch:Dispatch<StoreUsersActionType>){
         try{
-            const response = await fetch("https://run.mocky.io/v3/e694caac-3432-4e79-982c-7e010745fc32");
+            const response = await fetch("https://run.mocky.io/v3/40425ba3-ce12-48f6-b302-5f6ef773d269");
             if(response.status == 200){
             const json:UserDataType = await response.json();
             const jsonData = JSON.stringify(json)
@@ -46,7 +47,15 @@ const getAllUsers =()=>{
         }
     } 
 }
-export {getAllUsers}
 
+
+const storeElement:(state:ElementStateType,element:HTMLElement, dispatch:Dispatch<setElementActionType>)=>any = (state,element, dispatch)=>{
+    const allElements = Object.values(state.elements);
+    const allId = allElements.map((el)=> el.id);
+    const hasId = allId.includes(element.id);
+    !hasId&&dispatch(setElementActionCreator({[element.id]: element}));        
+}
+
+export {getAllUsers, storeElement}
 
 

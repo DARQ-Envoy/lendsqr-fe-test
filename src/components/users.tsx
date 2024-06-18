@@ -36,17 +36,18 @@ const Users:React.FC = () => {
         }) 
     
 
-
+const totalUsers = allStoredUsers.length;
+const totalActiveUsers = allStoredUsers.filter((user)=>user.personalDetails.status == "active").length
  const userTypes:Array<UserCategoryProps> = [
     {
         imgSrc:users,
         description: "Users",
-        value: 1001
+        value: totalUsers
     },
     {
         imgSrc:activeUsers,
         description: "Active Users",
-        value: 2331
+        value: totalActiveUsers
     },
     {
         imgSrc: loanRecords,
@@ -158,7 +159,6 @@ useEffect(()=>{
     console.log(allDisplayUsers, userList)
     setUserList(userList)
 },[allDisplayUsers])
-console.log(userList)
     return (
     <div id='user-info-section'>
         <h1>Users</h1>

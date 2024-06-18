@@ -10,7 +10,7 @@ type LenderNavLinkProp = {
 
 const LenderNavLink:React.FC<LenderNavLinkProp> = ({icon,text,hasDropdown=false}) => {
   return (
-        <a href="" className='lender-nav-link'>
+        <a href="/" className='lender-nav-link'>
             <img src={icon} alt={`${text} icon`} />
             <span>{text}</span>
             { hasDropdown && <img src={dropDownIcon} alt="dropdown icon" /> }

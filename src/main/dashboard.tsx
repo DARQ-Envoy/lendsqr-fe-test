@@ -5,7 +5,7 @@ import { Users } from '../components/users';
 
 const Dashboard:React.FC = () => {
   return (
-        <div id='dashboard'>
+        <div id='dashboard' className='relative'>
                       <LenderNav/>
                         <div id='page-content'>
                         <Header/>

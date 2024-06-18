@@ -71,7 +71,9 @@ $userProperties : ("organization":("width": 120px,"bgColor":brown),"username":("
 .absolute{
     position: absolute !important;
 }
-
+.pointer{
+    cursor: pointer;
+}
 
 
 
@@ -107,6 +109,18 @@ $userProperties : ("organization":("width": 120px,"bgColor":brown),"username":("
     .sm-logo{
         width: 130px !important;
         height: 25px !important;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        >*{
+            height: 100%;
+        }
+        #union{
+            width: 23px;
+        }
+        #lend-logo{
+            flex: 1;
+        }
     }
 
 }

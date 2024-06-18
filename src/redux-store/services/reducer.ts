@@ -1,6 +1,6 @@
 import { UserDataType } from "../../utility/data-structure";
 
-import {UserReducerType, UserDataInitialStateType, storeUsersActionCmd} from "./data-structure";
+import {UserReducerType, UserDataInitialStateType, storeUsersActionCmd, ElementStateType, ElementReducerType} from "./data-structure";
 
 
 const initialUserData :UserDataType = [{
@@ -70,4 +70,26 @@ const userReducer:UserReducerType = (state=userDataInitialState, action)=>{
     }
 };
 
-export {userReducer};
+const placeHolderDiv = document.createElement("div")
+placeHolderDiv.id =  "placeholder-element"
+const elementInitialState: ElementStateType = { 
+                                                "elements": {}
+                                                };
+
+
+const elementReducer: ElementReducerType = (state = elementInitialState, action)=>{
+            switch(action.type){
+                case "SET_ELEMENT":
+                    const allElements = state.elements;
+                    const newState:ElementStateType = {"elements": {...allElements, ...action.payLoad}};
+                    return newState
+
+                default:
+                    const nothing:never = action.type;
+                    nothing;
+                    return state
+
+            }
+}
+
+export {userReducer, elementReducer};

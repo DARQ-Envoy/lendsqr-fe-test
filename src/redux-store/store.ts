@@ -1,14 +1,16 @@
 import { configureStore, combineReducers} from "@reduxjs/toolkit";
-import { userReducer } from "./services/reducer";
+import { elementReducer, userReducer } from "./services/reducer";
 import logger from "redux-logger";
 import {thunk} from "redux-thunk";
-import { UserDataInitialStateType } from "./services/data-structure";
+import { ElementStateType, UserDataInitialStateType } from "./services/data-structure";
 
 const resultingReducers = combineReducers({
-    userReducer:userReducer
+    userReducer:userReducer,
+    elementReducer: elementReducer
 })
 type GlobalState = {
-    userReducer: UserDataInitialStateType
+    userReducer: UserDataInitialStateType,
+    elementReducer: ElementStateType
 }
 const store = configureStore({
         reducer: resultingReducers,

@@ -52,6 +52,9 @@
 }
 
 @media screen and (max-width:900px){
+
+
+
 .login-page{
     >div{
         >form{
@@ -59,20 +62,55 @@
         }
     }
 }
+#lender-nav-el{
+    display: none;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: hidden;
+}
     #lender-nav{
         position: absolute;
         left: 0;
         top: 0;
         translate: -100% 0px;
         z-index: 999;
+        min-width: max-content;
+        width: 60%;
+        >img:first-of-type{
+            // scale: 0.7 0.7;
+            height: 25px;
+            width: 115px;
+            margin-left: 15px;
+        }
     }
-    #lender-nav-display{
-        translate: 0% 0px;
-    }
-    #lender-nav-hide{
-        translate: -100% 0px;
-    }
+    #main-lender-nav{
+        margin-top: 15px;
+        padding-top: 15px;
 
+        .lender-nav-link{
+            padding-left: 15px;
+            span{
+                font-size: 0.8rem;
+            }
+        }
+        .lender-nav-link:first-child{
+            gap: 0;
+            >img:first-of-type{
+                margin-right: 10px;
+            }
+            >span{
+                margin-right: 5px;
+            }
+        }
+    }
+.lender-link-group{
+    h1{
+        padding-left: 15px;
+    }
+}
 
     #dashboard{
         // height: unset;
@@ -82,7 +120,7 @@
 
     #header{
         height: 10%;
-        padding: 15px 20px 15px 20px ;
+        padding: 15px ;
     }
 
    
